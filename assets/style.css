@@ -209,7 +209,8 @@ header.site {
 .facts-strip .v { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; line-height: 1.15; }
 
 /* distances — the strongest argument for the location */
-.dist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 0 0 8px; }
+/* six tiles: 3x2 fills evenly, auto-fit left one stranded on its own row */
+.dist-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 8px; }
 .dist {
   background: var(--white); border: 1px solid var(--line); border-radius: 4px;
   padding: 16px 18px; display: flex; flex-direction: column; gap: 3px;
@@ -219,7 +220,7 @@ header.site {
 .dist small { font-size: 11.5px; color: var(--stone); letter-spacing: 0.06em; text-transform: uppercase; }
 
 /* cards carrying an icon + a short point */
-.icon-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.icon-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .icon-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 20px 22px; }
 .icon-card svg { color: var(--coral); margin-bottom: 10px; }
 .icon-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; font-weight: 600; margin: 0 0 6px; }
@@ -234,7 +235,7 @@ header.site {
 .chips.plain li { background: var(--blush); border-color: transparent; }
 
 /* priced extras */
-.price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.price-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .price-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; }
 .price-card .amt { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; color: var(--coral); line-height: 1; }
 .price-card h3 { font-family: 'Karla', sans-serif; font-size: 15.5px; font-weight: 700; margin: 8px 0 5px; }
@@ -376,6 +377,10 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .ig-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .ig-copy { grid-column: 1 / -1; }
   .facts-strip { grid-template-columns: 1fr 1fr; margin-bottom: 26px; }
+  .facts-strip div:last-child { grid-column: 1 / -1; }  /* 5 facts, 2 columns */
+  .dist-grid, .icon-cards, .price-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .icon-cards { gap: 14px; }
+
   .team-grid { gap: 16px; }
   .team-card img { aspect-ratio: auto; height: 240px; object-position: center 25%; }
   .contact-grid { gap: 16px; }
@@ -388,6 +393,11 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .foot-grid { grid-template-columns: 1fr; gap: 26px; }
   .foot-brand img { height: 64px; }
   .foot-base { margin-top: 24px; }
+}
+
+/* one column once two would be too narrow to read */
+@media (max-width: 560px) {
+  .dist-grid, .icon-cards, .price-cards, .refund, .rules { grid-template-columns: 1fr; }
 }
 
 /* ---------- phones ---------- */
