@@ -190,6 +190,102 @@ header.site {
 .prop-book { padding: 0 0 52px; }
 .prop-book h2 { font-size: clamp(24px, 2.8vw, 32px); margin-bottom: 16px; }
 
+/* ---------- interior page furniture ----------
+   These pages were walls of stacked text. The rules below give them the same
+   vocabulary as the home page: tiles for figures, cards for grouped facts,
+   chips for lists, and collapsible blocks for the long legal sections. */
+
+/* a strip of key figures / facts */
+.facts-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: 4px; overflow: hidden; margin: 0 0 34px;
+}
+.facts-strip div { background: var(--white); padding: 16px 18px; }
+.facts-strip .k {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: var(--stone); margin-bottom: 5px;
+}
+.facts-strip .v { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px; line-height: 1.15; }
+
+/* distances — the strongest argument for the location */
+.dist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 0 0 8px; }
+.dist {
+  background: var(--white); border: 1px solid var(--line); border-radius: 4px;
+  padding: 16px 18px; display: flex; flex-direction: column; gap: 3px;
+}
+.dist b { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 600; line-height: 1; color: var(--coral); }
+.dist span { font-size: 14px; color: var(--body); line-height: 1.35; }
+.dist small { font-size: 11.5px; color: var(--stone); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* cards carrying an icon + a short point */
+.icon-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.icon-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 20px 22px; }
+.icon-card svg { color: var(--coral); margin-bottom: 10px; }
+.icon-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; font-weight: 600; margin: 0 0 6px; }
+.icon-card p { margin: 0; font-size: 14.5px; color: var(--body); line-height: 1.5; }
+
+/* chips for flat lists (amenities, apps) */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
+.chips li {
+  background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 15px; font-size: 14px; color: var(--body);
+}
+.chips.plain li { background: var(--blush); border-color: transparent; }
+
+/* priced extras */
+.price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.price-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 18px 20px; }
+.price-card .amt { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; color: var(--coral); line-height: 1; }
+.price-card h3 { font-family: 'Karla', sans-serif; font-size: 15.5px; font-weight: 700; margin: 8px 0 5px; }
+.price-card p { margin: 0; font-size: 14px; color: var(--body); line-height: 1.45; }
+
+/* refund timeline */
+.refund { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 8px; }
+.refund div { border-left: 3px solid var(--coral); background: var(--white); padding: 14px 18px; border-radius: 0 4px 4px 0; }
+.refund .pct { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; line-height: 1; margin-bottom: 5px; }
+.refund p { margin: 0; font-size: 14px; color: var(--body); line-height: 1.45; }
+.refund .none { border-left-color: var(--stone); }
+
+/* numbered house rules */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; counter-reset: rule; }
+.rules li {
+  counter-increment: rule; background: var(--white); border: 1px solid var(--line);
+  border-radius: 4px; padding: 14px 16px 14px 46px; position: relative;
+  font-size: 14.5px; color: var(--body); line-height: 1.45;
+}
+.rules li::before {
+  content: counter(rule); position: absolute; left: 14px; top: 13px;
+  width: 22px; height: 22px; border-radius: 50%; background: var(--blush);
+  color: var(--coral); font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* collapsible blocks for the long legal text */
+details.acc { border: 1px solid var(--line); border-radius: 4px; background: var(--white); margin-bottom: 10px; }
+details.acc + details.acc { margin-top: 0; }
+details.acc > summary {
+  cursor: pointer; padding: 14px 18px; font-weight: 700; font-size: 15.5px;
+  list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+details.acc > summary::-webkit-details-marker { display: none; }
+details.acc > summary::after {
+  content: ""; flex: none; width: 8px; height: 8px; margin-right: 4px;
+  border-right: 2px solid var(--stone); border-bottom: 2px solid var(--stone);
+  transform: rotate(45deg); transition: transform .18s ease;
+}
+details.acc[open] > summary::after { transform: rotate(-135deg); }
+details.acc > summary:hover { color: var(--coral); }
+details.acc .acc-body { padding: 0 18px 16px; }
+details.acc .acc-body p:last-child, details.acc .acc-body ul:last-child { margin-bottom: 0; }
+
+/* instagram band */
+.ig-band { background: var(--blush); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 44px 0; }
+.ig-grid { display: grid; grid-template-columns: 1fr repeat(4, minmax(0, 150px)); gap: 16px; align-items: center; }
+.ig-grid img { aspect-ratio: 1; object-fit: cover; border-radius: 4px; width: 100%; }
+.ig-copy h2 { font-size: clamp(24px, 2.6vw, 32px); margin: 10px 0 8px; }
+.ig-copy p { margin: 0 0 14px; color: var(--body); font-size: 15px; max-width: 40ch; }
+
 /* ---------- team ---------- */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 4px; }
 .team-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; }
@@ -277,6 +373,9 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .booking-embed.is-open iframe { height: 350px; }
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
+  .ig-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ig-copy { grid-column: 1 / -1; }
+  .facts-strip { grid-template-columns: 1fr 1fr; margin-bottom: 26px; }
   .team-grid { gap: 16px; }
   .team-card img { aspect-ratio: auto; height: 240px; object-position: center 25%; }
   .contact-grid { gap: 16px; }
