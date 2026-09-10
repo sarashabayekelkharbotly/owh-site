@@ -223,14 +223,15 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .book-band { margin-top: -22px; }
 
   .intro { padding: 32px 0 30px; }
-  .intro-grid { grid-template-columns: 1fr; gap: 22px; }
-  .intro-art { order: -1; }
+  .intro-grid { grid-template-columns: 1fr; gap: 20px; }
+  /* one wide column would blow the illustration up — cap it instead */
+  .intro-art img { aspect-ratio: auto; height: 240px; }
   .intro-facts { grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; padding-top: 18px; }
   .fact .n { font-size: 27px; }
 
   .homes { padding: 34px 0 38px; }
   .sec-head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
-  .home-grid { grid-template-columns: 1fr; gap: 16px; }
+  .home-grid { gap: 16px; }
   .home-card img { height: 190px; }
   .home-body h3 { font-size: 21px; }
 
@@ -245,6 +246,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
   .team-grid { gap: 16px; }
+  .team-card img { aspect-ratio: auto; height: 240px; }
   .contact-grid { gap: 16px; }
 
   .prop-hero { height: 230px; }
@@ -255,6 +257,17 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .foot-grid { grid-template-columns: 1fr; gap: 26px; }
   .foot-brand img { height: 64px; }
   .foot-base { margin-top: 24px; }
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 640px) {
+  .home-grid { grid-template-columns: 1fr; }
+  /* narrow enough that the natural 3:2 shape is the right size again */
+  .team-card img, .intro-art img { aspect-ratio: 3/2; height: auto; }
+  .hero-img { height: 300px; }
+  .home-card img { height: 180px; }
+  .band img { height: 165px; }
+  .prop-gallery { gap: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
