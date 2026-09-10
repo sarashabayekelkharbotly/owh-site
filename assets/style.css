@@ -90,9 +90,15 @@ header.site {
   background: var(--white); border: 1px solid var(--line); border-radius: 4px;
   padding: 6px; box-shadow: 0 16px 34px -22px rgba(34,29,25,0.4);
 }
-/* Smoobu's date picker is a 297x318 dropdown that opens ~83px below the field,
-   so the frame has to clear ~400px or the calendar is clipped and scrolls */
-.booking-embed iframe { width: 100%; border: 0; display: block; height: 440px; }
+/* At rest the frame is just tall enough for Smoobu's search row; it grows to clear
+   the open date picker (195x196, bottoming out near 305px) while the frame has
+   focus — see site.js. A cross-origin dropdown can't overflow onto our page, so
+   resizing the frame is the only way to avoid dead white space under the form. */
+.booking-embed iframe {
+  width: 100%; border: 0; display: block; height: 170px;
+  transition: height .2s ease;
+}
+.booking-embed.is-open iframe { height: 320px; }
 .booking-note { text-align: center; font-size: 12.5px; color: var(--stone); margin-top: 10px; }
 
 /* ---------- home hero ---------- */
@@ -259,7 +265,9 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .page-head { padding: 26px 0 24px; }
   .page-head .head-grid { grid-template-columns: 1fr; gap: 20px; }
   .page-head .head-art img { aspect-ratio: auto; height: 180px; object-position: center 55%; }
-  .booking-embed iframe { height: 470px; }
+  /* the fields stack into rows here, so the form itself is already tall */
+  .booking-embed iframe { height: 300px; }
+  .booking-embed.is-open iframe { height: 350px; }
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
   .team-grid { gap: 16px; }
@@ -285,10 +293,11 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .home-card img { height: 180px; }
   .band img { height: 165px; }
   .prop-gallery { gap: 10px; }
-  .booking-embed iframe { height: 450px; }
+  .booking-embed iframe { height: 330px; }
+  .booking-embed.is-open iframe { height: 370px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .home-card, .btn { transition: none; }
+  .home-card, .btn, .booking-embed iframe { transition: none; }
 }
