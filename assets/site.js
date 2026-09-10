@@ -16,6 +16,9 @@
   }, 200);
 
   document.addEventListener('click', function (e) {
-    if (!wrap.contains(e.target)) wrap.classList.remove('is-open');
+    if (wrap.contains(e.target)) return;
+    wrap.classList.remove('is-open');
+    // blur too, or the poll above sees the iframe still focused and reopens it
+    if (document.activeElement === frame) frame.blur();
   });
 })();
