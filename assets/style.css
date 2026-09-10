@@ -65,6 +65,13 @@ header.site {
 .page-head { background: var(--blush); border-bottom: 1px solid var(--line); padding: 36px 0 32px; }
 .page-head h1 { font-size: clamp(28px, 3.6vw, 42px); margin-top: 10px; }
 .page-head p.lead { max-width: 62ch; color: var(--body); margin: 12px 0 0; font-size: 16px; }
+/* a page head that carries a photo: copy left, image right */
+.page-head .head-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 44px; align-items: center; }
+.page-head .head-art img {
+  width: 100%; aspect-ratio: 3/2; object-fit: cover;
+  border-radius: 4px; border: 1px solid rgba(34,29,25,0.08);
+  box-shadow: 0 14px 30px -18px rgba(34,29,25,0.4);
+}
 
 /* ---------- prose ---------- */
 .prose { padding: 40px 0 52px; }
@@ -79,7 +86,11 @@ header.site {
 .note-box { background: var(--blush); border: 1px solid var(--line); border-radius: 4px; padding: 16px 20px; max-width: 70ch; }
 
 /* ---------- booking widget ---------- */
-.booking-embed { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 8px; }
+.booking-embed {
+  background: var(--white); border: 1px solid var(--line); border-radius: 4px;
+  padding: 6px; box-shadow: 0 16px 34px -22px rgba(34,29,25,0.4);
+}
+.booking-embed iframe { width: 100%; border: 0; display: block; height: 420px; }
 .booking-note { text-align: center; font-size: 12.5px; color: var(--stone); margin-top: 10px; }
 
 /* ---------- home hero ---------- */
@@ -244,6 +255,9 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .faq-cta .btn { flex: 1 1 auto; text-align: center; }
 
   .page-head { padding: 26px 0 24px; }
+  .page-head .head-grid { grid-template-columns: 1fr; gap: 20px; }
+  .page-head .head-art img { aspect-ratio: auto; height: 180px; object-position: center 55%; }
+  .booking-embed iframe { height: 560px; }
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
   .team-grid { gap: 16px; }
