@@ -90,7 +90,9 @@ header.site {
   background: var(--white); border: 1px solid var(--line); border-radius: 4px;
   padding: 6px; box-shadow: 0 16px 34px -22px rgba(34,29,25,0.4);
 }
-.booking-embed iframe { width: 100%; border: 0; display: block; height: 420px; }
+/* height is tuned to Smoobu's search form at each width — too tall leaves dead
+   white space under the Search button, too short clips it */
+.booking-embed iframe { width: 100%; border: 0; display: block; height: 250px; }
 .booking-note { text-align: center; font-size: 12.5px; color: var(--stone); margin-top: 10px; }
 
 /* ---------- home hero ---------- */
@@ -257,7 +259,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .page-head { padding: 26px 0 24px; }
   .page-head .head-grid { grid-template-columns: 1fr; gap: 20px; }
   .page-head .head-art img { aspect-ratio: auto; height: 180px; object-position: center 55%; }
-  .booking-embed iframe { height: 560px; }
+  .booking-embed iframe { height: 330px; }
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
   .team-grid { gap: 16px; }
@@ -283,6 +285,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .home-card img { height: 180px; }
   .band img { height: 165px; }
   .prop-gallery { gap: 10px; }
+  .booking-embed iframe { height: 420px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
