@@ -1059,3 +1059,9 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .deliver { grid-template-columns: 1fr 1fr; gap: 16px; }
 }
 @media (max-width: 560px) { .deliver { grid-template-columns: 1fr; } }
+
+/* the delivery intro is a plain measure again — the illustration moved to the
+   page header, where it has room. Sitting beside the app columns it crowded
+   "Everything else" into the corner. */
+.deliver-intro { max-width: 68ch; margin: 0 0 22px; }
+.deliver { margin-top: 4px; }
