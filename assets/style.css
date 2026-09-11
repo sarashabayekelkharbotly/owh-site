@@ -290,8 +290,14 @@ details.acc .acc-body p:last-child, details.acc .acc-body ul:last-child { margin
 
 /* instagram band */
 .ig-band { background: var(--blush); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 44px 0; }
-.ig-grid { display: grid; grid-template-columns: 1fr repeat(4, minmax(0, 150px)); gap: 16px; align-items: center; }
-.ig-grid img { aspect-ratio: 1; object-fit: cover; border-radius: 4px; width: 100%; }
+.ig-grid { display: grid; grid-template-columns: 0.85fr 2.15fr; gap: 34px; align-items: center; }
+/* real Instagram embeds — Instagram renders these at a minimum of ~326px wide and
+   refuses to scale below it, so three across is the most that fits honestly */
+.ig-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ig-posts iframe {
+  width: 100%; height: 500px; border: 0; display: block;
+  background: var(--white); border-radius: 4px;
+}
 .ig-copy h2 { font-size: clamp(24px, 2.6vw, 32px); margin: 10px 0 8px; }
 .ig-copy p { margin: 0 0 14px; color: var(--body); font-size: 15px; max-width: 40ch; }
 
@@ -382,8 +388,9 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .booking-embed.is-open iframe { height: 350px; }
   .prose { padding: 30px 0 40px; }
   .prose .cols2, .contact-grid, .prop-body, .team-grid { grid-template-columns: 1fr; }
-  .ig-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .ig-copy { grid-column: 1 / -1; }
+  .ig-grid { grid-template-columns: 1fr; gap: 20px; }
+  .ig-posts { grid-template-columns: 1fr; gap: 12px; }
+  .ig-posts iframe { height: 480px; }
   .facts-strip { grid-template-columns: 1fr 1fr; margin-bottom: 26px; }
   .facts-strip div:last-child { grid-column: 1 / -1; }  /* 5 facts, 2 columns */
   .dist-grid, .icon-cards, .price-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
