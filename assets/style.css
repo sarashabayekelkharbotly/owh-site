@@ -1019,3 +1019,43 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 .chips.plain li { padding: 6px 14px; font-size: 14px; }
 .chips.plain li a { color: var(--ink); }
 .chips.plain li a:hover { color: var(--coral); }
+
+/* ---------- delivery apps ----------
+   Was: a big illustration, then three stacked label-and-pill rows down the left
+   edge — unorganised, and most of the width empty. Now the intro and the
+   illustration share a row, and the three groups sit side by side beneath it.
+
+   The marks are brand-coloured initials, not the companies' logos: using a
+   third party's actual logo on a commercial site is their call, not ours. Drop
+   real logo files into assets/img and these swap out in a minute. */
+.deliver-head { display: grid; grid-template-columns: 1fr 320px; gap: 30px; align-items: center; margin-bottom: 22px; }
+.deliver-head p { margin: 0; }
+.deliver-art { width: 100%; aspect-ratio: 3/2; height: auto; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+
+.deliver { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.deliver-group h3 {
+  font-family: 'Karla', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone);
+  margin: 0 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+}
+.apps { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.apps li {
+  display: flex; align-items: center; gap: 11px;
+  background: var(--white); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 16px 6px 6px; font-size: 14.5px; color: var(--ink);
+}
+.app-badge {
+  flex: none; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--b); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; line-height: 1;
+}
+.app-badge.ink { color: var(--ink); }
+.deliver-note { margin: 20px 0 0; font-size: 14px; color: var(--stone); max-width: 70ch; }
+
+@media (max-width: 860px) {
+  .deliver-head { grid-template-columns: 1fr; gap: 16px; }
+  .deliver-art { max-width: 420px; }
+  .deliver { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (max-width: 560px) { .deliver { grid-template-columns: 1fr; } }
