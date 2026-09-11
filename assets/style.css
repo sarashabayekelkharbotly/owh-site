@@ -805,3 +805,8 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   border-radius: 10px; border: 1px solid var(--line); aspect-ratio: auto;
 }
 @media (max-width: 860px) { .hello-extra { height: 140px; } }
+
+/* "Best for" line on the Homes page — the cards there have room to say who each
+   home actually suits, which is the question a guest is really asking */
+.home-for { margin: 8px 0 0; font-size: 14px; color: var(--body); line-height: 1.5; }
+.home-for b { font-weight: 700; color: var(--ink); }
