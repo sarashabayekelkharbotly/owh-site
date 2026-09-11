@@ -955,3 +955,67 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 @media (max-width: 860px) {
   .faq-art { max-width: 100%; justify-self: stretch; height: 170px; }
 }
+
+/* ---------- amenities with icons ----------
+   Sixteen pills of text was a wall of ovals. An icon per line lets the eye scan
+   for the one thing it came to check — usually the washing machine or the Wi-Fi. */
+.amen {
+  list-style: none; padding: 0; margin: 4px 0 14px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 26px;
+}
+.amen li {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 14.5px; color: var(--body); line-height: 1.35;
+}
+.amen svg {
+  flex: none; width: 21px; height: 21px; color: var(--coral);
+  fill: none; stroke: currentColor; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- facts strip, third attempt ----------
+   Hairlines between flex items left odd half-height rules and a lot of air. The
+   site already has a tile that works — .dist on the drive times — so this uses
+   the same shape: small tiles, label above, value in the serif, no stray rules. */
+.facts-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px; background: none; border: none; border-radius: 0; margin: 0 0 26px;
+}
+.facts-strip > div {
+  background: var(--white); border: 1px solid var(--line); border-radius: 8px;
+  padding: 13px 16px; margin: 0;
+}
+.prose.white .facts-strip > div { background: var(--blush); border-color: transparent; }
+.facts-strip .k { font-size: 10.5px; letter-spacing: 0.13em; margin-bottom: 3px; }
+.facts-strip .v { font-size: 20px; line-height: 1.2; color: var(--ink); }
+
+@media (max-width: 1040px) { .amen { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+@media (max-width: 860px) {
+  .amen { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px 18px; }
+  .facts-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; }
+  .facts-strip > div { display: block; padding: 11px 13px; border: 1px solid var(--line); }
+  .facts-strip > div::after { content: none; }
+  .facts-strip .k { display: block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .facts-strip .v { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; font-weight: 600; margin: 0; }
+}
+@media (max-width: 560px) { .amen { grid-template-columns: 1fr; } }
+
+/* ---------- closing the gaps ----------
+   Sarah: "there are places across the pages where there are too many blank
+   spaces." Three causes: prose sections padded for a full page when they are
+   now bands; two-column prose where one column runs short and leaves a hole;
+   and link rows floating in their own section. */
+.prose { padding: 34px 0 38px; }
+.prose.tight { padding: 26px 0 28px; }
+.prose h2 { margin: 26px 0 10px; }
+.prose .cols2 { gap: 0 44px; align-items: start; }
+
+/* a short right-hand column should not leave half a screen empty: below the
+   widest desktop the two columns become one flowing measure */
+@media (max-width: 1100px) { .prose .cols2 { grid-template-columns: 1fr; } }
+
+/* link rows read as a line, not as a paragraph of spaced-out links */
+.chips.plain { gap: 10px; }
+.chips.plain li { padding: 6px 14px; font-size: 14px; }
+.chips.plain li a { color: var(--ink); }
+.chips.plain li a:hover { color: var(--coral); }
