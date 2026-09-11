@@ -4,7 +4,9 @@
   --ivory: #FAF6F1;
   --blush: #F6ECE7;
   --ink: #221D19;
-  --stone: #7D7268;
+  /* was #7D7268 — only 4.4:1 on the ivory ground, under the 4.5 minimum for the
+     small labels it's used on. #6F665E reads the same but clears it at 5.2:1 */
+  --stone: #6F665E;
   --coral: #C95F54;
   --coral-deep: #A94C43;
   --line: #E7DCD1;
@@ -23,6 +25,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+/* Cormorant defaults to old-style figures, which turn the 1 in "Top 1% 1BR" into
+   something close to a lowercase i, and leave stat tiles bobbing up and down */
+h1, h2, h3,
+.fact .n, .dist b, .price-card .amt, .refund .pct, .facts-strip .v, .home-meta {
+  font-variant-numeric: lining-nums;
+}
 a { color: var(--coral); text-decoration: none; }
 a:hover { color: var(--coral-deep); }
 img { max-width: 100%; display: block; }
