@@ -440,3 +440,278 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   html { scroll-behavior: auto; }
   .home-card, .btn, .booking-embed iframe { transition: none; }
 }
+
+/* =========================================================
+   HOME PAGE v2 — the warm, playful pass
+   Everything below is additive: it only touches the home page's new
+   components, plus a couple of shared pieces (.more, softer corners).
+   Interior pages keep the styles they already had.
+   ========================================================= */
+
+/* Photo-carrying pieces get a softer corner than the 4px used elsewhere —
+   rounder reads friendlier, and it is the cheapest playfulness on the page. */
+.home-card, .hello-art img, .direct-card, .drive-note { border-radius: 10px; }
+
+/* the arrow text link, previously only styled inside .sec-head */
+.more {
+  display: inline-block; font-weight: 700; font-size: 14.5px;
+  border-bottom: 1px solid currentColor; padding-bottom: 2px; white-space: nowrap;
+}
+
+/* ---------- hero ---------- */
+/* taller than v1: the hero now carries a button row and a proof badge */
+.hero-img { height: 500px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+/* a white wash over a bright lawn photo turns olive — a dark scrim keeps the
+   label legible wherever the hero image happens to be light */
+.btn.light {
+  background: rgba(34,29,25,0.34); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.7); backdrop-filter: blur(4px);
+}
+.btn.light:hover { background: var(--white); color: var(--ink); }
+.hero-badge {
+  margin-top: 18px; display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; color: rgba(255,255,255,0.95);
+  background: rgba(34,29,25,0.45); border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 999px; padding: 7px 16px; backdrop-filter: blur(4px);
+}
+.hero-badge b { font-weight: 700; }
+.hero-badge .hb-star { color: #F4C9C2; }
+
+/* ---------- hello / hosts ---------- */
+.hello { padding: 54px 0 46px; }
+.hello-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; }
+.hello-art img {
+  width: 100%; aspect-ratio: 3/2; object-fit: cover;
+  border: 1px solid var(--line); box-shadow: 0 22px 44px -26px rgba(34,29,25,0.5);
+}
+.hello-copy h2 { font-size: clamp(28px, 3.4vw, 42px); margin: 12px 0 8px; }
+.hello-copy p { color: var(--body); margin: 0 0 12px; max-width: 54ch; }
+/* the Arabic welcome sits in its own RTL block — no Latin inside it to flip */
+.hello-copy p.ar {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 23px;
+  color: var(--coral); margin: 0 0 14px;
+}
+.chip-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 16px 0 18px; }
+.chip-facts li {
+  background: var(--blush); border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 14px; font-size: 13.5px; color: var(--body);
+}
+
+/* ---------- numbers band ----------
+   A dark band between two ivory sections. The page needed a beat of contrast
+   somewhere, and the proof numbers are what deserve it. */
+.nums-band { background: var(--ink); padding: 32px 0; }
+.nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.num b {
+  display: block; font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 44px; font-weight: 600; line-height: 1; color: var(--white);
+  font-variant-numeric: lining-nums;
+}
+.num b span { font-size: 21px; color: #E79086; }
+.num .l { display: block; margin-top: 8px; font-size: 13px; color: #C9BFB6; line-height: 1.4; }
+
+/* ---------- homes ---------- */
+.sec-sub { color: var(--body); margin: 10px 0 0; max-width: 62ch; font-size: 15px; }
+/* the image is a link now, so the zoom has something to be clipped by */
+.shot { display: block; position: relative; overflow: hidden; }
+.shot img { transition: transform .5s ease; }
+.home-card:hover .shot img { transform: scale(1.05); }
+.home-tag {
+  position: absolute; left: 12px; top: 12px;
+  background: var(--coral); color: var(--white); border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 6px 12px;
+}
+.home-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.home-body h3 { font-size: 26px; }
+.home-official {
+  font-size: 11.5px; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--stone); margin-top: 5px; line-height: 1.35;
+}
+.home-rate { flex: none; text-align: right; }
+.home-rate b {
+  display: block; font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 23px; line-height: 1; color: var(--coral); font-variant-numeric: lining-nums;
+}
+.home-rate span { font-size: 11.5px; color: var(--stone); white-space: nowrap; }
+.home-hook { margin: 4px 0 0; color: var(--body); font-size: 15px; line-height: 1.5; }
+/* three facts and two separators do not fit one line on a narrow card */
+.home-meta { flex-wrap: wrap; row-gap: 2px; }
+.home-price { font-size: 14px; color: var(--stone); }
+.home-price b { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 21px; color: var(--ink); font-variant-numeric: lining-nums; }
+
+/* ---------- drive times ---------- */
+.drive { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 48px 0 46px; }
+.drive h2 { font-size: clamp(26px, 3vw, 38px); margin: 10px 0 24px; max-width: 30ch; }
+/* four tiles here, not the six the area guide carries */
+.drive .dist-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 0; }
+.drive .dist { background: var(--blush); border-color: transparent; }
+.drive-note {
+  margin-top: 22px; background: var(--blush); padding: 18px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.drive-note p { margin: 0; color: var(--body); font-size: 15px; max-width: 68ch; }
+
+/* ---------- quote band ---------- */
+.band-veil blockquote cite {
+  display: block; margin-top: 14px; font-family: 'Karla', sans-serif; font-style: normal;
+  font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.82);
+}
+
+/* ---------- reviews ---------- */
+.reviews-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.reviews-head h2 { font-size: clamp(26px, 3vw, 38px); margin-top: 10px; }
+.rev-head { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+.avatar {
+  flex: none; width: 38px; height: 38px; border-radius: 50%;
+  background: var(--blush); border: 1px solid var(--line); color: var(--coral);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 19px; font-weight: 600;
+}
+.review p { margin: 10px 0 0; }
+
+/* ---------- book direct ---------- */
+.direct { padding: 48px 0; }
+.direct h2 { font-size: clamp(26px, 3vw, 38px); margin: 10px 0 24px; }
+.direct-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; align-items: start; }
+.direct-card {
+  background: var(--white); border: 1px solid var(--line); padding: 24px 26px;
+  box-shadow: 0 16px 34px -26px rgba(34,29,25,0.45);
+}
+/* the Airbnb side is deliberately quieter — dashed, unshadowed, no button */
+.direct-card.alt { background: transparent; box-shadow: none; border-style: dashed; }
+.direct-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; font-weight: 600; margin: 0 0 14px; }
+.direct-card ul { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 9px; }
+.direct-card li { position: relative; padding-left: 24px; font-size: 14.5px; color: var(--body); line-height: 1.45; }
+.direct-card li::before { content: "\2713"; position: absolute; left: 0; top: 0; color: var(--coral); font-weight: 700; }
+.direct-card.alt li::before { content: "\2013"; color: var(--stone); }
+.direct-card.alt ul { margin-bottom: 14px; }
+.direct-note { margin: 18px 0 0; color: var(--stone); font-size: 14px; }
+
+/* ---------- reveal on scroll ----------
+   The hidden state only exists once site.js has marked the document, so a
+   blocked or broken script leaves the page fully visible rather than blank. */
+.js-reveal .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.js-reveal .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- tablet ---------- */
+@media (max-width: 1040px) {
+  .nums { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .drive .dist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 860px) {
+  /* On a phone the hero copy is taller than any fixed image height, and the
+     absolute overlay would spill over the booking card. Stack image, veil and
+     copy in one grid cell instead, so the section grows to fit the words. */
+  .hero { display: grid; }
+  .hero-img, .hero-veil, .hero-copy { grid-area: 1 / 1; }
+  .hero-img { height: 100%; min-height: 360px; }
+  .hero-veil { position: static; }
+  .hero-copy { position: static; padding: 26px 0 40px; }
+  .hero-cta .btn { flex: 1 1 auto; text-align: center; }
+  .hero-badge { margin-top: 14px; font-size: 12.5px; padding: 6px 13px; }
+
+  .hello { padding: 34px 0 30px; }
+  .hello-grid { grid-template-columns: 1fr; gap: 22px; }
+  .hello-art img { aspect-ratio: auto; height: 240px; object-position: center 25%; }
+
+  .nums-band { padding: 26px 0; }
+  .nums { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .num b { font-size: 34px; }
+  .num b span { font-size: 17px; }
+  .num .l { font-size: 12.5px; }
+
+  .home-body h3 { font-size: 23px; }
+  /* side by side, the name gets squeezed into a three-line column — stack the
+     rating under it and let the title have the full width of the card */
+  .home-top { flex-direction: column; gap: 4px; }
+  .home-rate { text-align: left; display: flex; align-items: baseline; gap: 6px; }
+  .home-rate b { font-size: 19px; }
+  .home-official { margin-top: 2px; }
+
+  .drive { padding: 34px 0 32px; }
+  .drive-note { padding: 16px 18px; }
+  .drive-note p { font-size: 14.5px; }
+
+  .reviews-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .direct { padding: 34px 0; }
+  .direct-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  /* still the stacked-grid hero — only the floor changes */
+  .hero-img { height: 100%; min-height: 320px; }
+  .hello-art img { aspect-ratio: 3/2; height: auto; object-position: center; }
+  .drive .dist-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal { opacity: 1; transform: none; transition: none; }
+  .shot img { transition: none; }
+}
+
+/* ---------- card footer: price + link on one line ---------- */
+.home-foot {
+  margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.home-foot .cta { margin-top: 0; padding-top: 0; }
+/* the official listing name moved below the hook — it is for recognition and
+   search, not for reading, so it sits quietly above the price line */
+.home-official { margin-top: 10px; }
+
+/* ---------- the price comparison ----------
+   Two tiles, ours lit and theirs plain. This is the single most persuasive
+   thing on the page, so it goes above the two lists, not inside them. */
+.price-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 640px; margin: 0 0 24px; }
+.pc {
+  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;
+}
+.pc-win { border-color: var(--coral); box-shadow: 0 16px 34px -26px rgba(201,95,84,0.8); }
+.pc-k { font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); }
+.pc-v {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 40px; line-height: 1;
+  font-variant-numeric: lining-nums; color: var(--stone);
+}
+.pc-win .pc-v { color: var(--coral); }
+.pc-n { font-size: 13px; color: var(--stone); }
+
+/* ---------- guest avatars ----------
+   An initial today, a cartoon character the moment the artwork lands. */
+.avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+.avatar:has(img) { background: none; border: none; }
+
+@media (max-width: 560px) {
+  .price-compare { grid-template-columns: 1fr; gap: 12px; }
+  .pc { flex-direction: row; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .pc-v { font-size: 30px; }
+}
+
+/* ---------- "why guests come" ----------
+   Four reasons, so four columns — the shared .icon-cards is three wide and
+   would strand the fourth card alone on its own row. */
+.drive .icon-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.drive .icon-card { padding: 18px 20px; }
+.drive .icon-card h3 { font-size: 20px; }
+.drive .icon-card p { font-size: 14px; }
+/* the drive times are now a supporting row under the reasons, not the headline */
+.drive .drive-times .dist { padding: 13px 16px; }
+.drive .drive-times .dist b { font-size: 24px; }
+
+@media (max-width: 1040px) {
+  .drive .icon-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .drive .icon-cards { grid-template-columns: 1fr; }
+}
+
+/* a quoted review left in its own language, with the English underneath */
+.rev-tr {
+  margin: 8px 0 0; font-size: 13.5px; font-style: italic;
+  color: var(--stone); line-height: 1.5; padding-left: 12px;
+  border-left: 2px solid var(--line);
+}
