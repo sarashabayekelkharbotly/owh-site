@@ -942,3 +942,16 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .reach { grid-template-columns: 1fr; gap: 14px; }
   .head-art.art-toon img { aspect-ratio: 3/2; }
 }
+
+/* The basket replaces Dani beside the FAQ (his illustration now lives on the
+   Contact page, and one drawing shouldn't do two jobs). Smaller than the slot
+   was: it is a detail, not a scene, and it reads better as a small object. */
+.faq-head { grid-template-columns: 1.6fr 1fr; align-items: center; }
+.faq-art { max-width: 320px; justify-self: end; aspect-ratio: 3/2; object-position: center 62%; }
+
+/* the hosts block is one illustration again */
+.hello-art { display: block; }
+
+@media (max-width: 860px) {
+  .faq-art { max-width: 100%; justify-self: stretch; height: 170px; }
+}
