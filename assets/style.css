@@ -810,3 +810,100 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
    home actually suits, which is the question a guest is really asking */
 .home-for { margin: 8px 0 0; font-size: 14px; color: var(--body); line-height: 1.5; }
 .home-for b { font-weight: 700; color: var(--ink); }
+
+/* ---------- the height-attribute trap ----------
+   These images carry width/height attributes (900x600, 1600x800) for layout
+   stability. With `width:100%` and no `height`, the browser uses the ATTRIBUTE
+   height as a presentational hint — 600px, 800px — and `aspect-ratio` never
+   gets a look in, because it only applies when one axis is auto. That is why
+   the FAQ illustration rendered 454x600 and the Stay & Explore map came out
+   full-bleed and enormous. `height: auto` hands control back to aspect-ratio. */
+.faq-art, .page-art, .reason-art, .hello-extra, .home-card img, .team-card img { height: auto; }
+.reason-art { height: 190px; }
+.hello-extra { height: 170px; }
+.home-card img { height: 230px; }
+.team-card img { height: auto; aspect-ratio: 3/2; }
+
+/* the map is a supporting diagram, not a hero */
+.page-art.wide { max-width: 760px; aspect-ratio: 2/1; }
+
+@media (max-width: 1040px) { .reason-art { height: 165px; } }
+@media (max-width: 860px) {
+  .reason-art { height: 180px; }
+  .hello-extra { height: 140px; }
+  .home-card img { height: 190px; }
+  .faq-art { height: 200px; aspect-ratio: auto; }
+  .page-art, .page-art.wide { height: 190px; aspect-ratio: auto; }
+}
+@media (max-width: 640px) { .home-card img { height: 180px; } }
+
+/* ---------- facts strip, lighter ----------
+   As big white boxes with a lot of air it read as a spreadsheet. Same numbers,
+   a quarter of the height: one quiet row, hairline dividers, no cell borders. */
+.facts-strip {
+  display: flex; flex-wrap: wrap; gap: 0; background: none; border: none;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  border-radius: 0; margin: 0 0 28px; overflow: visible;
+}
+.facts-strip div {
+  background: none; padding: 12px 26px 12px 0; margin-right: 26px;
+  border-right: 1px solid var(--line); flex: 0 1 auto;
+}
+.facts-strip div:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.facts-strip .k {
+  font-size: 10.5px; letter-spacing: 0.14em; margin-bottom: 2px; color: var(--stone);
+}
+.facts-strip .v { font-size: 21px; line-height: 1.2; color: var(--ink); }
+
+@media (max-width: 860px) {
+  .facts-strip { border-bottom: none; }
+  .facts-strip div {
+    flex: 1 0 40%; padding: 10px 14px 10px 0; margin-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .facts-strip div:last-child { border-bottom: none; }
+  .facts-strip .v { font-size: 19px; }
+}
+
+/* ---------- interior page headers ----------
+   A 3:2 photo beside the title was taller than the words and pulled the eye
+   away from them. Wider crop, capped height, secondary. */
+.page-head .head-grid { grid-template-columns: 1.5fr 1fr; gap: 36px; }
+.page-head .head-art img { aspect-ratio: 16/9; max-height: 200px; height: auto; }
+
+@media (max-width: 860px) {
+  .page-head .head-art img { max-height: 150px; }
+}
+
+/* On a phone even a light table is still a table: five cells, wrapped labels,
+   stray dividers. Below 860px the same facts read as one plain sentence. */
+@media (max-width: 860px) {
+  .facts-strip { display: block; border-bottom: none; padding: 12px 0 2px; }
+  .facts-strip div { display: inline; border: none; padding: 0; margin: 0; }
+  .facts-strip div::after { content: " · "; color: var(--stone); }
+  .facts-strip div:last-child::after { content: ""; }
+  .facts-strip .k {
+    display: inline; font-size: 13.5px; letter-spacing: 0; text-transform: none;
+    color: var(--stone); margin: 0;
+  }
+  .facts-strip .v {
+    display: inline; font-family: 'Karla', sans-serif; font-size: 14.5px;
+    font-weight: 700; color: var(--ink); margin-left: 4px;
+  }
+}
+
+/* appended after the desktop head-grid rule, or the phone keeps two columns
+   and the header photo shrinks to a 96px stamp beside the title */
+@media (max-width: 860px) {
+  .page-head .head-grid { grid-template-columns: 1fr; gap: 18px; }
+  .page-head .head-art img { width: 100%; max-height: 150px; aspect-ratio: 16/9; }
+}
+
+/* `.facts-strip div` also matches the .k and .v divs INSIDE each fact, so the
+   separator landed between a label and its own number: "Rating · 4.98". Scope
+   the separator to direct children only. */
+.facts-strip div::after { content: none; }
+@media (max-width: 860px) {
+  .facts-strip > div::after { content: " · "; color: var(--stone); }
+  .facts-strip > div:last-child::after { content: none; }
+}
