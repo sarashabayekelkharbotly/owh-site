@@ -907,3 +907,38 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .facts-strip > div::after { content: " · "; color: var(--stone); }
   .facts-strip > div:last-child::after { content: none; }
 }
+
+/* ---------- banded interior pages ----------
+   The homepage works because it changes ground every section: ivory, blush,
+   white, ink. Policies and Contact were one unbroken column of ivory prose, so
+   they read as a document rather than as part of the same site. These give the
+   long pages the same rhythm without touching the type. */
+.prose.alt { background: var(--blush); }
+.prose.white { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.prose.tight { padding: 34px 0 38px; }
+.prose .sec-eyebrow { display: block; margin-bottom: 10px; }
+.prose h2:first-child { margin-top: 0; }
+
+/* an illustration in a page header should never be cropped like a photo —
+   it is drawn to a frame, and 16:9 cuts the subject off at the knees */
+.head-art.art-toon img {
+  aspect-ratio: 3/2; max-height: none; object-fit: contain;
+  background: var(--white); border-radius: 10px;
+}
+
+/* contact: three ways to reach us, as cards rather than a list of links */
+.reach { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin: 6px 0 4px; }
+.reach-card {
+  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px 24px; display: flex; flex-direction: column; gap: 6px;
+}
+.reach-card svg { color: var(--coral); margin-bottom: 4px; }
+.reach-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; font-weight: 600; margin: 0; }
+.reach-card .line { font-size: 15.5px; font-weight: 700; }
+.reach-card p { margin: 0; font-size: 14px; color: var(--stone); line-height: 1.5; }
+.reach-card .btn { align-self: flex-start; margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .reach { grid-template-columns: 1fr; gap: 14px; }
+  .head-art.art-toon img { aspect-ratio: 3/2; }
+}
