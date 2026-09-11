@@ -1065,3 +1065,48 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
    "Everything else" into the corner. */
 .deliver-intro { max-width: 68ch; margin: 0 0 22px; }
 .deliver { margin-top: 4px; }
+
+/* ---------- the featured review, made to be read ----------
+   Sarah: "Shereen's review is not very well seen." White italic serif over a
+   sunlit photo is the least legible thing a page can do, however pretty. So:
+   a face to anchor it, more weight, a touch more size, and a stronger wash. */
+.band-face {
+  display: block; width: 92px; height: 92px; border-radius: 50%;
+  object-fit: cover; margin: 0 auto 18px;
+  border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 26px -12px rgba(34,29,25,0.8);
+}
+.band-veil { background: rgba(34,29,25,0.6); }
+.band-veil blockquote {
+  font-weight: 600; font-size: clamp(21px, 2.7vw, 32px);
+  text-shadow: 0 2px 18px rgba(34,29,25,0.65);
+}
+.band-veil blockquote cite { color: rgba(255,255,255,0.92); font-weight: 700; }
+
+@media (max-width: 860px) {
+  .band-face { width: 72px; height: 72px; margin-bottom: 14px; }
+  .band-veil { background: rgba(34,29,25,0.66); }
+  .band-veil blockquote { font-size: 19px; font-weight: 600; }
+}
+
+/* `.band img` (position:absolute; inset:0; width/height:100%) was written for
+   the background photo, but it also caught the portrait inside the quote and
+   stretched it into an ellipse. Scope it to the band's own direct child. */
+.band > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.band-face {
+  position: static; inset: auto; width: 92px; height: 92px; flex: none;
+}
+@media (max-width: 860px) { .band-face { width: 72px; height: 72px; } }
+
+/* `.band img` is (0,1,1) and `.band-face` only (0,1,0), so the background-photo
+   rule kept winning however late it was appended — the portrait stayed
+   absolutely positioned and stretched to the full band. Match on both. */
+.band img.band-face {
+  position: static; inset: auto; display: block;
+  width: 92px; height: 92px; border-radius: 50%; object-fit: cover;
+  margin: 0 auto 18px; border: 3px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 26px -12px rgba(34,29,25,0.8);
+}
+@media (max-width: 860px) {
+  .band img.band-face { width: 72px; height: 72px; margin-bottom: 14px; }
+}
