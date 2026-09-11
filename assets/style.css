@@ -715,3 +715,38 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   color: var(--stone); line-height: 1.5; padding-left: 12px;
   border-left: 2px solid var(--line);
 }
+
+/* ---------- reason cards, layout B ----------
+   Two across instead of four, with the illustration beside the words. Four
+   columns left each drawing about 260px wide, which is too small to read the
+   faces — and the faces are the whole point: a guest should recognise their own
+   reason for coming before they read a word. */
+.drive .icon-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.icon-card.reason { display: flex; align-items: center; gap: 18px; padding: 16px; }
+.reason-art {
+  flex: none; width: 220px; height: 190px; object-fit: cover;
+  border-radius: 8px; background: var(--blush);
+}
+.reason-body h3 { margin-top: 0; }
+.icon-card.reason p { margin: 0; }
+
+@media (max-width: 1040px) {
+  .reason-art { width: 170px; height: 165px; }
+}
+@media (max-width: 760px) {
+  /* side by side stops working once the text column is narrower than the art */
+  .icon-card.reason { flex-direction: column; align-items: stretch; gap: 14px; }
+  .reason-art { width: 100%; height: 180px; }
+}
+
+/* These must live AFTER the base .reason rules above: an earlier media query
+   loses to a later plain rule of equal specificity, so the 2-column grid was
+   winning at every width until this block was added. */
+@media (max-width: 760px) {
+  .drive .icon-cards { grid-template-columns: 1fr; }
+}
+
+/* a drawn face needs more room than an initial did, and sits high in a square
+   portrait — so crop towards the top rather than the middle */
+.avatar { width: 46px; height: 46px; }
+.avatar img { object-position: center 28%; }
