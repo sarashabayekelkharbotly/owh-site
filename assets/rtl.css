@@ -96,3 +96,11 @@
      Arabic column edge so it does not float off on its own */
   text-align: right;
 }
+
+/* on the Arabic home pages the official Airbnb listing name is left in English
+   under the heading — it is there for recognition and search, so it keeps the
+   Latin tracking the rest of this file strips, and hugs the Arabic column edge */
+[dir="rtl"] .home-official[lang="en"] {
+  letter-spacing: 0.07em;
+  text-align: right;
+}
