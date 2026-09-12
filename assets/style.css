@@ -65,7 +65,7 @@ header.site {
 .nav { display: flex; align-items: center; gap: 28px; height: 84px; }
 .brand { display: flex; align-items: center; order: 0; }
 .brand img { height: 68px; width: auto; }
-.nav-links { display: flex; gap: 22px; margin-left: auto; font-size: 14.5px; font-weight: 500; order: 1; }
+.nav-links { display: flex; gap: 22px; margin-inline-start: auto; font-size: 14.5px; font-weight: 500; order: 1; }
 .nav-links a { color: var(--ink); }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--coral); }
 .nav .btn { padding: 9px 20px; order: 2; }
@@ -349,7 +349,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 
   .nav { height: 64px; gap: 10px; }
   .brand img { height: 46px; }
-  .nav .btn { margin-left: auto; padding: 8px 16px; font-size: 13.5px; }
+  .nav .btn { margin-inline-start: auto; padding: 8px 16px; font-size: 13.5px; }
   .nav-toggle { display: block; padding: 6px; }
   .nav-links {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -1253,3 +1253,26 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 /* the basket is re-cropped around the box itself now, so the frame no longer
    needs nudging — centre it and let the picture do the work */
 .faq-art { object-position: center center; }
+
+/* ============================================================
+   LANGUAGE SWITCH  —  lives here, not in rtl.css, because the
+   English pages need the same pill and they never load rtl.css.
+   ============================================================ */
+.lang-switch {
+  font-size: 13.5px; font-weight: 700; color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px;
+  white-space: nowrap; background: var(--white); line-height: 1.2;
+}
+.lang-switch:hover { color: var(--coral); border-color: var(--coral); }
+/* the nav is an explicit order:0/1/2/3 flex row — without an order of its own
+   the pill falls into the brand slot and sits next to the logo */
+.nav .lang-switch { order: 2; margin-inline-start: 4px; }
+@media (max-width: 860px) {
+  /* on phones the pill takes over the spacer duty from the Book-now button */
+  .nav .lang-switch { margin-inline-start: auto; padding: 5px 10px; font-size: 12.5px; }
+  .nav .lang-switch ~ .btn { margin-inline-start: 8px; }
+}
+
+/* Smoobu's checkout has no Arabic, so the Arabic pages say so above the widget */
+.lang-note { font-size: 13.5px; color: var(--stone); text-align: center; margin: 10px 0 0; }
+.lang-note a { color: var(--coral); font-weight: 600; }

@@ -1,0 +1,98 @@
+/* OurWelcomeHome — Arabic / right-to-left layer
+   Loaded only by the pages under /ar/, after style.css.
+
+   Three jobs:
+   1. Arabic typefaces — Cormorant and Karla have no Arabic glyphs at all, so
+      without this every heading would fall back to whatever the device has.
+      Amiri is a naskh with the same bookish feel as Cormorant; Tajawal is a
+      clean humanist sans that sits beside Karla without arguing with it.
+   2. Kill letter-spacing. Latin small-caps labels are tracked out by 0.14em
+      across this stylesheet; applied to Arabic that pulls joined letters apart
+      and produces broken-looking words. It has to go everywhere it appears.
+   3. Mirror the things that direction alone does not flip: gradients, the
+      offsets on decorative dots and badges, and borders used as rules on one
+      side of a block. Flexbox and grid reverse themselves; `left: 12px` does not.
+*/
+
+/* ---------- type ---------- */
+[dir="rtl"] body,
+[dir="rtl"] .btn,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea {
+  font-family: 'Tajawal', 'Segoe UI', Arial, sans-serif;
+}
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] .home-body h3, [dir="rtl"] .team-card h3,
+[dir="rtl"] .reach-card h3, [dir="rtl"] .closing-card h3,
+[dir="rtl"] .direct-card h3, [dir="rtl"] .icon-card h3,
+[dir="rtl"] .band-veil blockquote,
+[dir="rtl"] .num b, [dir="rtl"] .fact .n, [dir="rtl"] .dist b,
+[dir="rtl"] .facts-strip .v, [dir="rtl"] .price-card .amt,
+[dir="rtl"] .refund .pct, [dir="rtl"] .home-rate b {
+  font-family: 'Amiri', 'Times New Roman', serif;
+}
+/* Amiri runs small and light next to Cormorant at the same size */
+[dir="rtl"] h1 { line-height: 1.35; }
+[dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.4; }
+[dir="rtl"] body { line-height: 1.8; }
+
+/* Arabic is cursive: tracking breaks the joins between letters */
+[dir="rtl"] .eyebrow, [dir="rtl"] .home-loc, [dir="rtl"] .home-official,
+[dir="rtl"] .fact .l, [dir="rtl"] .facts-strip .k, [dir="rtl"] .team-card .role,
+[dir="rtl"] .dist small, [dir="rtl"] .home-tag, [dir="rtl"] .contact-card h3,
+[dir="rtl"] .deliver-group h3, [dir="rtl"] .band-veil blockquote cite,
+[dir="rtl"] footer.site h4, [dir="rtl"] .btn, [dir="rtl"] .stars,
+[dir="rtl"] .num .l, [dir="rtl"] .price-card h3 {
+  letter-spacing: 0;
+}
+
+/* a Latin word inside an Arabic line (WhatsApp, Smart Village, 10/10) keeps its
+   own direction; without isolation the punctuation around it jumps sides */
+[dir="rtl"] .ltr { unicode-bidi: isolate; direction: ltr; display: inline-block; }
+
+/* ---------- mirrored geometry ---------- */
+[dir="rtl"] .hero-veil {
+  background:
+    linear-gradient(to top, rgba(34,29,25,0.5) 0%, rgba(34,29,25,0.1) 44%, rgba(34,29,25,0) 64%),
+    linear-gradient(260deg,
+      rgba(34,29,25,0.84) 0%,
+      rgba(34,29,25,0.74) 32%,
+      rgba(34,29,25,0.56) 52%,
+      rgba(34,29,25,0.18) 74%,
+      rgba(34,29,25,0) 90%);
+}
+[dir="rtl"] .home-tag { left: auto; right: 12px; }
+[dir="rtl"] .home-rate { text-align: left; }
+[dir="rtl"] .home-points li { padding-left: 0; padding-right: 15px; }
+[dir="rtl"] .home-points li::before { left: auto; right: 0; }
+[dir="rtl"] .direct-card li { padding-left: 0; padding-right: 24px; }
+[dir="rtl"] .direct-card li::before { left: auto; right: 0; }
+[dir="rtl"] .rules li { padding: 14px 46px 14px 16px; }
+[dir="rtl"] .rules li::before { left: auto; right: 14px; }
+[dir="rtl"] .prose ul, [dir="rtl"] .prose ol { padding-left: 0; padding-right: 20px; }
+[dir="rtl"] .refund div { border-left: none; border-right: 3px solid var(--coral); border-radius: 4px 0 0 4px; }
+[dir="rtl"] .refund .none { border-right-color: var(--stone); }
+[dir="rtl"] .rev-tr { padding-left: 0; padding-right: 12px; border-left: none; border-right: 2px solid var(--line); }
+[dir="rtl"] .facts-strip > div { border-right: none; border-left: 1px solid var(--line); }
+[dir="rtl"] .facts-strip > div:last-child { border-left: none; }
+[dir="rtl"] .apps li { padding: 6px 6px 6px 16px; }
+[dir="rtl"] details.acc > summary::after { margin-right: 4px; margin-left: 0; }
+
+/* the booking iframe is Smoobu's own page and stays left-to-right */
+[dir="rtl"] .booking-embed { direction: ltr; }
+
+/* ---------- language switch ---------- */
+/* the pill itself is styled in style.css so both languages share it;
+   only the Arabic-side tweaks belong here */
+[dir="rtl"] .lang-switch { font-family: 'Karla', sans-serif; }
+
+/* the greeting pull-line is the mirror of the English page's Arabic one:
+   over there it is Arabic, over here it is English. Either way it keeps
+   Cormorant — it is the other language showing through on purpose. */
+[dir="rtl"] .hello-copy p.ar {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  /* it carries dir="ltr" so its full stop stays put; pull it back to the
+     Arabic column edge so it does not float off on its own */
+  text-align: right;
+}
