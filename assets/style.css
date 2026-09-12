@@ -1133,3 +1133,14 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
       linear-gradient(100deg, rgba(34,29,25,0.5) 0%, rgba(34,29,25,0.3) 100%);
   }
 }
+
+/* the golden-hour frame is already composed for this band — no re-centring */
+.hero-img { object-position: center center; }
+
+/* the golden-hour frame is warmer and darker than the midday lawn it replaced,
+   so the wash can come back a notch and let the light through */
+.hero-veil {
+  background:
+    linear-gradient(to top, rgba(34,29,25,0.5) 0%, rgba(34,29,25,0.1) 44%, rgba(34,29,25,0) 64%),
+    linear-gradient(100deg, rgba(34,29,25,0.62) 0%, rgba(34,29,25,0.32) 50%, rgba(34,29,25,0.04) 80%);
+}
