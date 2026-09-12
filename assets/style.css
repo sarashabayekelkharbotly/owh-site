@@ -1219,3 +1219,33 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .cta-band p { font-size: 19px; }
   .cta-band .btn { width: 100%; text-align: center; }
 }
+
+/* ---------- closing card ----------
+   A dark strip here sat directly above the dark footer and read as one block —
+   the sentence looked like footer furniture rather than an invitation. A light
+   card on the ivory ground keeps it separate, and the footer stays the only
+   dark thing at the bottom of the page. */
+.closing-card {
+  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px 26px; display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  box-shadow: 0 16px 34px -28px rgba(34,29,25,0.5);
+}
+.closing-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 600;
+  margin: 0 0 4px;
+}
+.closing-card p { margin: 0; color: var(--body); font-size: 15px; }
+.closing-card .btn { flex: none; }
+
+@media (max-width: 640px) {
+  .closing-card { padding: 20px; gap: 16px; }
+  .closing-card .btn { width: 100%; text-align: center; }
+}
+
+/* The embeds were cut off mid-caption on phones: one column caps the frame at
+   420px wide, and an Instagram photo post needs roughly its own width plus the
+   header and action bar — about 560px, not the 480 it had. */
+@media (max-width: 1040px) { .ig-posts iframe { height: 560px; } }
+@media (max-width: 860px)  { .ig-posts iframe { height: 560px; } }
+@media (max-width: 460px)  { .ig-posts iframe { height: 520px; } }
