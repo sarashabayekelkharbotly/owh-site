@@ -1110,3 +1110,26 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 @media (max-width: 860px) {
   .band img.band-face { width: 72px; height: 72px; margin-bottom: 14px; }
 }
+
+/* ---------- hero legibility ----------
+   The veil was a single diagonal sweep written for a headline and one line of
+   text. The block now runs down to a button row and a badge, and those sit on
+   the brightest part of the lawn. Two washes instead of one: the diagonal keeps
+   the right-hand side open, and a soft bottom-left pool holds the controls. */
+.hero-veil {
+  background:
+    linear-gradient(to top, rgba(34,29,25,0.55) 0%, rgba(34,29,25,0.12) 42%, rgba(34,29,25,0) 62%),
+    linear-gradient(100deg, rgba(34,29,25,0.72) 0%, rgba(34,29,25,0.42) 48%, rgba(34,29,25,0.08) 78%);
+}
+/* a solid button reads at a glance; a translucent one over grass does not */
+.btn.light { background: rgba(255,255,255,0.94); color: var(--ink); border-color: transparent; }
+.btn.light:hover { background: var(--white); color: var(--coral-deep); }
+.hero-badge { background: rgba(34,29,25,0.55); border-color: rgba(255,255,255,0.3); }
+
+@media (max-width: 860px) {
+  .hero-veil {
+    background:
+      linear-gradient(to top, rgba(34,29,25,0.62) 0%, rgba(34,29,25,0.4) 55%, rgba(34,29,25,0.3) 100%),
+      linear-gradient(100deg, rgba(34,29,25,0.5) 0%, rgba(34,29,25,0.3) 100%);
+  }
+}
