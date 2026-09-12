@@ -1249,3 +1249,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 @media (max-width: 1040px) { .ig-posts iframe { height: 560px; } }
 @media (max-width: 860px)  { .ig-posts iframe { height: 560px; } }
 @media (max-width: 460px)  { .ig-posts iframe { height: 520px; } }
+
+/* the basket is re-cropped around the box itself now, so the frame no longer
+   needs nudging — centre it and let the picture do the work */
+.faq-art { object-position: center center; }
