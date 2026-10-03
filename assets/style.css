@@ -1276,3 +1276,37 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
 /* Smoobu's checkout has no Arabic, so the Arabic pages say so above the widget */
 .lang-note { font-size: 13.5px; color: var(--stone); text-align: center; margin: 10px 0 0; }
 .lang-note a { color: var(--coral); font-weight: 600; }
+
+/* ============================================================
+   ROOM-BY-ROOM TOUR  —  the full photo set on a home page.
+   Used where a home has a complete captioned set; the homes that
+   still have the four-photo side gallery are unaffected.
+   ============================================================ */
+
+/* with a full tour below, the description runs the whole width
+   instead of sharing the row with a four-photo teaser */
+.prop-body.solo { grid-template-columns: 1fr; }
+
+.tour { padding: 6px 0 46px; }
+.tour h2 { font-size: clamp(22px, 2.6vw, 30px); margin: 0 0 6px; }
+.tour .tour-sub { color: var(--stone); font-size: 15px; margin: 0 0 22px; max-width: 60ch; }
+.tour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 18px; }
+.tour-grid figure { margin: 0; }
+.tour-grid img {
+  width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+  display: block; border-radius: 3px; background: var(--blush);
+}
+.tour-grid figcaption {
+  font-size: 13.5px; line-height: 1.55; color: var(--stone); padding-top: 8px;
+}
+/* the upright shots — a bed end-on, a shower, the building door — lose their
+   subject if a 4:3 tile crops them from the middle, so bias the crop upward */
+.tour-grid img.upright { object-position: center 32%; }
+
+@media (max-width: 900px) {
+  .tour-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 14px; }
+  .tour { padding-bottom: 34px; }
+}
+@media (max-width: 560px) {
+  .tour-grid { grid-template-columns: 1fr; gap: 20px; }
+}
