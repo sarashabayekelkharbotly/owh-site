@@ -28,16 +28,75 @@
 <header class="site">
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="OurWelcomeHome"><img src="../assets/img/logo-header.png" alt="شعار OurWelcomeHome"></a>
-    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false" onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+    <button class="nav-toggle" aria-label="القائمة" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#221D19" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav-links" aria-label="الرئيسية">
-      <a href="index.html">أهلاً</a>
-      <a href="properties.html">بيوتنا</a>
-      <a href="team.html">من نحن</a>
-      <a href="policies.html" aria-current="page">السياسات</a>
-      <a href="contact.html">تواصل معنا</a>
-      <a href="stay-explore.html">إقامتك والمنطقة</a>
+      <div class="nav-item">
+        <a href="index.html">أهلاً<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="index.html#book">تحقّق من التواريخ</a>
+          <a href="index.html#hosts">المضيفان</a>
+          <a href="index.html#homes">بيوتنا</a>
+          <a href="index.html#why">لماذا يأتي الضيوف</a>
+          <a href="index.html#zayed">الوقت في زايد</a>
+          <a href="index.html#reviews">آراء الضيوف</a>
+          <a href="index.html#faq">الأسئلة الشائعة</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="properties.html">بيوتنا<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="homes/garden-1br.html">بيت الحديقة</a>
+          <a href="homes/vintage-charm-3br.html">بيت العائلة</a>
+          <a href="homes/stylish-vintage-2br.html">البيت الكلاسيكي</a>
+          <a href="homes/serene-1br.html">البيت الهادئ</a>
+          <a href="homes/contemporary-3br-garden.html">البيت القادم</a>
+          <a href="properties.html">البيوت الخمسة</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="stay.html">إقامتك<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="stay.html#amenities">ما في كل بيت</a>
+          <a href="stay.html#extras">إضافات اختيارية</a>
+          <a href="stay.html#delivery">تطبيقات التوصيل</a>
+          <a href="stay.html#faq">الأسئلة الشائعة</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="explore.html">المنطقة<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="explore.html#area">دليل المنطقة</a>
+          <a href="explore.html#why">لماذا يحب الضيوف المكان</a>
+          <a href="explore.html#zayed">الوقت في زايد</a>
+          <a href="explore.html#getting-around">التنقّل</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="team.html">من نحن<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="team.html#story">كيف بدأت الحكاية</a>
+          <a href="team.html#people">من ستتعامل معه</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="policies.html" aria-current="page">السياسات<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="policies.html#house-rules">قواعد البيت</a>
+          <a href="policies.html#cancellation">سياسة الإلغاء</a>
+          <a href="policies.html#terms">الشروط والأحكام</a>
+          <a href="policies.html#privacy">البيانات والخصوصية</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="contact.html">تواصل معنا<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="contact.html#ways">طرق التواصل</a>
+          <a href="contact.html#questions">أسئلة متكررة</a>
+          <a href="contact.html#visit">تعال وألقِ نظرة</a>
+        </div>
+      </div>
     </nav>
     <a class="lang-switch" href="../policies.html" hreflang="en" lang="en">English</a>
     <a class="btn" href="index.html#book">احجز الآن</a>
@@ -285,7 +344,8 @@
           <a href="properties.html">بيوتنا</a>
           <a href="team.html">من نحن</a>
           <a href="policies.html">السياسات</a>
-          <a href="stay-explore.html">إقامتك والمنطقة</a>
+          <a href="stay.html">إقامتك</a>
+          <a href="explore.html">المنطقة</a>
         </div>
       </div>
       <div>

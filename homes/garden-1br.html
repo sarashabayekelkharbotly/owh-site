@@ -27,16 +27,75 @@
 <header class="site">
   <div class="wrap nav">
     <a class="brand" href="../index.html" aria-label="OurWelcomeHome"><img src="../assets/img/logo-header.png" alt="OurWelcomeHome logo"></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#221D19" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav-links" aria-label="Main">
-      <a href="../index.html">Welcome</a>
-      <a href="../properties.html" aria-current="page">Homes</a>
-      <a href="../team.html">Team</a>
-      <a href="../policies.html">Policies</a>
-      <a href="../contact.html">Contact</a>
-      <a href="../stay-explore.html">Stay &amp; Explore</a>
+      <div class="nav-item">
+        <a href="../index.html">Welcome<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../index.html#book">Check dates</a>
+          <a href="../index.html#hosts">The hosts</a>
+          <a href="../index.html#homes">The homes</a>
+          <a href="../index.html#why">Why guests come</a>
+          <a href="../index.html#zayed">Time in Zayed</a>
+          <a href="../index.html#reviews">Reviews</a>
+          <a href="../index.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../properties.html" aria-current="page">Homes<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../homes/garden-1br.html">The Garden One</a>
+          <a href="../homes/vintage-charm-3br.html">The Family One</a>
+          <a href="../homes/stylish-vintage-2br.html">The Vintage One</a>
+          <a href="../homes/serene-1br.html">The Quiet One</a>
+          <a href="../homes/contemporary-3br-garden.html">The Next One</a>
+          <a href="../properties.html">All five</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../stay.html">Stay<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../stay.html#amenities">What's in every home</a>
+          <a href="../stay.html#extras">Optional extras</a>
+          <a href="../stay.html#delivery">Delivery apps</a>
+          <a href="../stay.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../explore.html">Explore<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../explore.html#area">Everything is close</a>
+          <a href="../explore.html#why">Why guests like it here</a>
+          <a href="../explore.html#zayed">Time in Zayed</a>
+          <a href="../explore.html#getting-around">Getting around</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../team.html">Team<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../team.html#story">How this started</a>
+          <a href="../team.html#people">Who you'll deal with</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../policies.html">Policies<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../policies.html#house-rules">House rules</a>
+          <a href="../policies.html#cancellation">Cancellation</a>
+          <a href="../policies.html#terms">Terms &amp; Conditions</a>
+          <a href="../policies.html#privacy">Data &amp; privacy</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../contact.html">Contact<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../contact.html#ways">Ways to reach us</a>
+          <a href="../contact.html#questions">Common questions</a>
+          <a href="../contact.html#visit">Come and see us</a>
+        </div>
+      </div>
     </nav>
     <a class="lang-switch" href="../ar/homes/garden-1br.html" hreflang="ar" lang="ar">عربي</a>
     <a class="btn" href="#book">Book now</a>
@@ -68,7 +127,7 @@
     <p>Wi-Fi runs at about 28&nbsp;Mbps, with 35&nbsp;GB a week or 140&nbsp;GB a month included. Standard cable is free; streaming is on your own accounts. A crib or stroller can be added for USD&nbsp;5 a night if you ask in advance.</p>
     <p>The garden is yours alone for the stay. The compound streets and lawns are shared residential grounds. One camera sits above the garden gate and sees only the approach to it: nothing of the garden, nothing indoors.</p>
     <p><strong>Getting in without stairs:</strong> the home is on the ground floor and the way in is the garden gate — step-free the whole way from the street parking. Worth knowing if you are arriving with a suitcase, a pushchair, or after treatment.</p>
-    <p><a href="../stay-explore.html#amenities">See everything that's included →</a></p>
+    <p><a href="../stay.html#amenities">See everything that's included →</a></p>
 
   </div>
 </div>
@@ -145,7 +204,8 @@
           <a href="../properties.html">Our homes</a>
           <a href="../team.html">Team</a>
           <a href="../policies.html">Policies</a>
-          <a href="../stay-explore.html">Stay &amp; Explore</a>
+          <a href="../stay.html">Your stay</a>
+          <a href="../explore.html">Explore</a>
         </div>
       </div>
       <div>

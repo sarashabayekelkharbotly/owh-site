@@ -27,16 +27,75 @@
 <header class="site">
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="OurWelcomeHome"><img src="assets/img/logo-header.png" alt="OurWelcomeHome logo"></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#221D19" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav-links" aria-label="Main">
-      <a href="index.html">Welcome</a>
-      <a href="properties.html">Homes</a>
-      <a href="team.html">Team</a>
-      <a href="policies.html">Policies</a>
-      <a href="contact.html" aria-current="page">Contact</a>
-      <a href="stay-explore.html">Stay &amp; Explore</a>
+      <div class="nav-item">
+        <a href="index.html">Welcome<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="index.html#book">Check dates</a>
+          <a href="index.html#hosts">The hosts</a>
+          <a href="index.html#homes">The homes</a>
+          <a href="index.html#why">Why guests come</a>
+          <a href="index.html#zayed">Time in Zayed</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="properties.html">Homes<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="homes/garden-1br.html">The Garden One</a>
+          <a href="homes/vintage-charm-3br.html">The Family One</a>
+          <a href="homes/stylish-vintage-2br.html">The Vintage One</a>
+          <a href="homes/serene-1br.html">The Quiet One</a>
+          <a href="homes/contemporary-3br-garden.html">The Next One</a>
+          <a href="properties.html">All five</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="stay.html">Stay<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="stay.html#amenities">What's in every home</a>
+          <a href="stay.html#extras">Optional extras</a>
+          <a href="stay.html#delivery">Delivery apps</a>
+          <a href="stay.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="explore.html">Explore<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="explore.html#area">Everything is close</a>
+          <a href="explore.html#why">Why guests like it here</a>
+          <a href="explore.html#zayed">Time in Zayed</a>
+          <a href="explore.html#getting-around">Getting around</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="team.html">Team<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="team.html#story">How this started</a>
+          <a href="team.html#people">Who you'll deal with</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="policies.html">Policies<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="policies.html#house-rules">House rules</a>
+          <a href="policies.html#cancellation">Cancellation</a>
+          <a href="policies.html#terms">Terms &amp; Conditions</a>
+          <a href="policies.html#privacy">Data &amp; privacy</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="contact.html" aria-current="page">Contact<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="contact.html#ways">Ways to reach us</a>
+          <a href="contact.html#questions">Common questions</a>
+          <a href="contact.html#visit">Come and see us</a>
+        </div>
+      </div>
     </nav>
     <a class="lang-switch" href="ar/contact.html" hreflang="ar" lang="ar">عربي</a>
     <a class="btn" href="index.html#book">Book now</a>
@@ -66,7 +125,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
       Three ways to reach us
     </span>
-    <h2>Pick whichever you already have open.</h2>
+    <h2 id="ways">Pick whichever you already have open.</h2>
     <div class="reach">
       <div class="reach-card">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
@@ -100,7 +159,7 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.2a2.6 2.6 0 1 1 3.1 2.9v1.4"/><circle cx="12.4" cy="16.6" r="0.9" fill="currentColor" stroke="none"/></svg>
       No wrong question
     </span>
-    <h2>What people usually open with.</h2>
+    <h2 id="questions">What people usually open with.</h2>
     <p>Any of these is a perfectly good first message — copy one if it saves you writing it.</p>
     <ul class="chips">
       <li>"Are these dates free?"</li>
@@ -121,7 +180,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
         @our_welcomehome
       </span>
-      <h2>Or just come and have a look.</h2>
+      <h2 id="visit">Or just come and have a look.</h2>
       <p>Guest mornings, local finds and the corners of Sheikh Zayed we like. A DM lands in the same place as everything else.</p>
       <a class="btn" href="https://instagram.com/our_welcomehome" rel="noopener">Follow us</a>
       <ul class="also-on">
@@ -163,7 +222,8 @@
           <a href="properties.html">Our homes</a>
           <a href="team.html">Team</a>
           <a href="policies.html">Policies</a>
-          <a href="stay-explore.html">Stay &amp; Explore</a>
+          <a href="stay.html">Your stay</a>
+          <a href="explore.html">Explore</a>
         </div>
       </div>
       <div>
@@ -182,5 +242,6 @@
     </div>
   </div>
 </footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

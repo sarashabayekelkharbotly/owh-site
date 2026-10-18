@@ -27,16 +27,75 @@
 <header class="site">
   <div class="wrap nav">
     <a class="brand" href="../index.html" aria-label="OurWelcomeHome"><img src="../assets/img/logo-header.png" alt="OurWelcomeHome logo"></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" onclick="const l=document.querySelector('.nav-links');const o=l.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#221D19" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav-links" aria-label="Main">
-      <a href="../index.html">Welcome</a>
-      <a href="../properties.html" aria-current="page">Homes</a>
-      <a href="../team.html">Team</a>
-      <a href="../policies.html">Policies</a>
-      <a href="../contact.html">Contact</a>
-      <a href="../stay-explore.html">Stay &amp; Explore</a>
+      <div class="nav-item">
+        <a href="../index.html">Welcome<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../index.html#book">Check dates</a>
+          <a href="../index.html#hosts">The hosts</a>
+          <a href="../index.html#homes">The homes</a>
+          <a href="../index.html#why">Why guests come</a>
+          <a href="../index.html#zayed">Time in Zayed</a>
+          <a href="../index.html#reviews">Reviews</a>
+          <a href="../index.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../properties.html" aria-current="page">Homes<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../homes/garden-1br.html">The Garden One</a>
+          <a href="../homes/vintage-charm-3br.html">The Family One</a>
+          <a href="../homes/stylish-vintage-2br.html">The Vintage One</a>
+          <a href="../homes/serene-1br.html">The Quiet One</a>
+          <a href="../homes/contemporary-3br-garden.html">The Next One</a>
+          <a href="../properties.html">All five</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../stay.html">Stay<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../stay.html#amenities">What's in every home</a>
+          <a href="../stay.html#extras">Optional extras</a>
+          <a href="../stay.html#delivery">Delivery apps</a>
+          <a href="../stay.html#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../explore.html">Explore<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../explore.html#area">Everything is close</a>
+          <a href="../explore.html#why">Why guests like it here</a>
+          <a href="../explore.html#zayed">Time in Zayed</a>
+          <a href="../explore.html#getting-around">Getting around</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../team.html">Team<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../team.html#story">How this started</a>
+          <a href="../team.html#people">Who you'll deal with</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../policies.html">Policies<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../policies.html#house-rules">House rules</a>
+          <a href="../policies.html#cancellation">Cancellation</a>
+          <a href="../policies.html#terms">Terms &amp; Conditions</a>
+          <a href="../policies.html#privacy">Data &amp; privacy</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../contact.html">Contact<svg class="nav-caret" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4.2 6 8.2 10 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav-menu">
+          <a href="../contact.html#ways">Ways to reach us</a>
+          <a href="../contact.html#questions">Common questions</a>
+          <a href="../contact.html#visit">Come and see us</a>
+        </div>
+      </div>
     </nav>
     <a class="lang-switch" href="../ar/homes/serene-1br.html" hreflang="ar" lang="ar">عربي</a>
     <a class="btn" href="#book">Book now</a>
@@ -65,7 +124,7 @@
       <li>Fully equipped kitchen (stove, oven, microwave), washing machine</li>
       <li>Two air conditioning units, free parking, 24/7 security</li>
     </ul>
-    <p><a href="../stay-explore.html#amenities">See everything that's included →</a></p>
+    <p><a href="../stay.html#amenities">See everything that's included →</a></p>
   </div>
 </div>
 
@@ -140,7 +199,8 @@
           <a href="../properties.html">Our homes</a>
           <a href="../team.html">Team</a>
           <a href="../policies.html">Policies</a>
-          <a href="../stay-explore.html">Stay &amp; Explore</a>
+          <a href="../stay.html">Your stay</a>
+          <a href="../explore.html">Explore</a>
         </div>
       </div>
       <div>

@@ -1403,3 +1403,138 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
   .area-times { grid-template-columns: 1fr; gap: 0; }
   .prop-area { padding-bottom: 34px; }
 }
+
+/* ---- "Spending time in Sheikh Zayed" (19 Oct 2026) -------------------------
+   Appended at the end on purpose: anything added further up this file loses to
+   the @media blocks above it. Phone first — every grid here is a single column
+   until there is room for more. */
+.zayed { margin: 4px 0 2px; }
+.zayed-hero { position: relative; border-radius: 4px; overflow: hidden; margin: 2px 0 32px; }
+.zayed-hero img {
+  width: 100%; height: auto; aspect-ratio: 3 / 1.08; object-fit: cover;
+  object-position: center 62%; display: block; background: var(--blush);
+}
+.zayed-hero figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 52px 24px 18px; color: var(--white);
+  background: linear-gradient(to top, rgba(34,29,25,0.74), rgba(34,29,25,0));
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(19px, 2.5vw, 28px); line-height: 1.3;
+}
+/* all six subjects are one even grid: three across, two at tablet, one on a
+   phone. An earlier version gave the big three a half-width row each, which
+   left the text column half empty and made the section very tall. */
+.zayed-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 20px; margin: 2px 0 0; }
+.zayed-tile img {
+  width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 3px; display: block; background: var(--blush);
+}
+.zayed-tile h3 { font-size: 18.5px; margin: 13px 0 6px; }
+.zayed-tile p { margin: 0; font-size: 14.5px; }
+.guide-note { margin: 24px 0 34px; padding: 26px 28px; background: var(--blush); border-radius: 4px; }
+.guide-note h3 { margin: 0 0 9px; font-size: clamp(19px, 2.2vw, 24px); }
+.guide-note p { margin: 0; max-width: 62ch; }
+@media (max-width: 860px) {
+  .zayed-tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .zayed-tiles { grid-template-columns: 1fr; gap: 22px; }
+  .zayed-hero figcaption { padding: 38px 16px 14px; }
+  .guide-note { padding: 22px 20px; }
+}
+
+/* ---- the homepage teaser that points at it ---- */
+.zayed-teaser { padding: 2px 0 58px; }
+.zayed-teaser .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 0 42px; align-items: center; }
+.zayed-teaser img {
+  width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 4px; display: block; background: var(--blush);
+}
+.zayed-teaser h2 { font-size: clamp(24px, 3vw, 34px); margin: 0 0 12px; }
+.zayed-teaser p { margin: 0 0 18px; max-width: 48ch; }
+@media (max-width: 860px) {
+  .zayed-teaser .wrap { grid-template-columns: 1fr; gap: 20px; }
+  .zayed-teaser { padding-bottom: 44px; }
+}
+
+/* ---- the guide panel, once it has its picture (19 Oct 2026) ---- */
+.guide-note.with-art { display: grid; grid-template-columns: 1fr 0.92fr; gap: 0 30px; align-items: center; }
+.guide-note.with-art img {
+  width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover;
+  border-radius: 3px; display: block; background: var(--white);
+}
+@media (max-width: 760px) {
+  .guide-note.with-art { grid-template-columns: 1fr; gap: 18px; }
+  .guide-note.with-art .guide-art { order: -1; }   /* picture first once stacked */
+}
+
+/* ---- nav dropdowns (19 Oct 2026) -------------------------------------------
+   Opening is CSS, not script: :hover serves a mouse and :focus-within serves a
+   keyboard, so the menus work even if site.js never loads. Below 860px the nav
+   IS the burger panel, and the sub-links simply sit indented under their parent
+   with nothing to open. The single case neither covers — a tap on a touch
+   screen still wide enough to show the desktop nav — is the .open class, set by
+   the one small handler in site.js. */
+.nav-item { position: relative; align-self: stretch; display: flex; align-items: center; }
+.nav-item > a { display: inline-flex; align-items: center; }
+.nav-caret { flex: none; margin-inline-start: 5px; opacity: 0.5; }
+.nav-menu {
+  position: absolute; top: 100%; inset-inline-start: -14px; z-index: 30;
+  min-width: 212px; padding: 7px 0;
+  background: var(--white); border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: 0 14px 34px rgba(34, 29, 25, 0.13);
+  opacity: 0; visibility: hidden; transform: translateY(-5px);
+  /* visibility is deliberately NOT transitioned: a transitioned visibility can
+     be left mid-flight when a browser throttles animations, and the menu then
+     never appears. It flips instantly; only the fade and slide are animated. */
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.nav-item:hover > .nav-menu,
+.nav-item:focus-within > .nav-menu,
+.nav-item.open > .nav-menu { opacity: 1; visibility: visible; transform: none; }
+.nav-menu a {
+  display: block; padding: 8px 18px; white-space: nowrap;
+  font-size: 14px; font-weight: 400; color: var(--body);
+}
+.nav-menu a:hover { background: var(--blush); color: var(--coral); }
+/* seven items with carets is wider than six plain ones — buy the room back */
+@media (min-width: 861px) and (max-width: 1120px) {
+  .nav-links { gap: 15px; font-size: 13.8px; }
+  .nav { gap: 18px; }
+}
+@media (max-width: 860px) {
+  /* inside the burger panel the menus are not menus any more, just an indented
+     list under each heading, always visible */
+  .nav-item { display: block; align-self: auto; }
+  .nav-item > a { display: flex; justify-content: space-between; }
+  .nav-caret { display: none; }
+  .nav-menu {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    min-width: 0; padding: 2px 0 8px; margin: 0;
+    background: none; border: 0; border-radius: 0; box-shadow: none;
+    transition: none;
+  }
+  .nav-menu a {
+    padding: 8px 0 8px 16px; border-bottom: none;
+    font-size: 14px; color: var(--stone);
+  }
+  [dir="rtl"] .nav-menu a { padding: 8px 16px 8px 0; }
+}
+/* the menu hangs from the bottom of the header, so the row that holds it has
+   to be as tall as the header — otherwise it opens inside the bar */
+@media (min-width: 861px) {
+  .nav-links { align-self: stretch; align-items: center; }
+}
+@media (max-width: 860px) {
+  /* seven sections' worth of sub-links is taller than a phone screen, and the
+     panel hangs off the sticky header — without its own scroll the items past
+     the fold could not be reached at all */
+  .nav-links.open {
+    max-height: calc(100vh - 64px); max-height: calc(100dvh - 64px);
+    overflow-y: auto; overscroll-behavior: contain;
+  }
+}
+@media (max-width: 620px) {
+  /* a 2.8:1 banner is a 120px sliver on a phone — give it the same shape as
+     the tiles so the picture is still a picture */
+  .zayed-hero img { aspect-ratio: 3 / 2; }
+}

@@ -146,3 +146,49 @@
     else if (e.key === 'ArrowRight') show(current + (rtl ? -1 : 1));
   });
 })();
+
+/* The burger used to carry its own onclick attribute, copied into all 24 pages.
+   One copy lives here instead, so the behaviour cannot drift between them. */
+(function () {
+  var btn = document.querySelector('.nav-toggle');
+  var list = document.querySelector('.nav-links');
+  if (!btn || !list) return;
+  btn.addEventListener('click', function () {
+    var open = list.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+})();
+
+/* Dropdowns open on hover and on keyboard focus, both in CSS. Touch has
+   neither: a tap would follow the link before the menu was ever seen. So on a
+   touch screen wide enough to still be showing the desktop nav, the first tap
+   opens the menu and the second follows the link. Everywhere else this does
+   nothing — under 860px the burger panel already shows every sub-link. */
+(function () {
+  var nav = document.querySelector('.nav-links');
+  if (!nav || !document.documentElement.closest) return;
+
+  function shut() {
+    var open = nav.querySelectorAll('.nav-item.open');
+    for (var i = 0; i < open.length; i++) open[i].classList.remove('open');
+  }
+
+  nav.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('.nav-item > a');
+    if (!link) return;
+    if (window.innerWidth <= 860) return;
+    if (!(window.matchMedia && window.matchMedia('(hover: none)').matches)) return;
+    var item = link.parentNode;
+    if (item.classList.contains('open')) return;   // second tap: let it through
+    e.preventDefault();
+    shut();
+    item.classList.add('open');
+  });
+
+  document.addEventListener('click', function (e) { if (!nav.contains(e.target)) shut(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    shut();
+    if (document.activeElement && nav.contains(document.activeElement)) document.activeElement.blur();
+  });
+})();
