@@ -1538,3 +1538,7 @@ footer.site h4 { color: var(--white); font-size: 12px; letter-spacing: 0.14em; t
      the tiles so the picture is still a picture */
   .zayed-hero img { aspect-ratio: 3 / 2; }
 }
+
+/* Guide graphics (VW1 25-26) carry text and a logo: show them whole rather than
+   centre-cropping to 4:3, which clipped the logo off the top of the square one. */
+.tour-grid img.guide-art-img { object-fit: contain; background: var(--blush); }
